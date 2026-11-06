@@ -114,6 +114,7 @@ TW_MTP_DEVICE := /dev/mtp_usb
 TW_DEFAULT_LANGUAGE := en
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.usb0/lun.%d/file
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
+PB_TORCH_PATH := "/sys/class/leds/flashlight"
 TW_USB_STORAGE := true
 TW_MAX_BRIGHTNESS := 2047
 TW_DEFAULT_BRIGHTNESS := 2047
