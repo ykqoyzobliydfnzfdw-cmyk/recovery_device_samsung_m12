@@ -1,0 +1,52 @@
+/system           # Mount point       FS           Path                                      Flags
+
+# Boot and Recovery
+/boot               emmc         /dev/block/by-name/boot                   flags=display="Boot";backup=1;flashimg=1;
+/recovery           emmc         /dev/block/by-name/recovery               flags=display="Recovery";backup=1;flashimg=1;
+/vendor_boot        emmc         /dev/block/by-name/vendor_boot            flags=display="Vendor Boot";backup=1;flashimg=1;
+/init_boot          emmc         /dev/block/by-name/init_boot              flags=display="Init Boot";backup=1;flashimg=1;
+/dtbo               emmc         /dev/block/by-name/dtbo                   flags=display="DTBO";backup=1;flashimg=1;
+
+# Dynamic Partitions - Direct Image Wiping
+/system             ext4         system                                    flags=display="System";logical;wipeingui;
+/vendor             ext4         vendor                                    flags=display="Vendor";logical;wipeingui;
+/product            ext4         product                                   flags=display="Product";logical;wipeingui;
+/odm                ext4         odm                                       flags=display="ODM";logical;wipeingui;
+/system_ext         ext4         system_ext                                flags=display="System Ext";logical;wipeingui;
+/vendor_dlkm        ext4         vendor_dlkm                               flags=display="Vendor DLKM";logical;wipeingui;
+/system_dlkm        ext4         system_dlkm                               flags=display="System DLKM";logical;wipeingui;
+
+# Dynamic Partitions - Direct Image Flashing
+/system_image       emmc         system                                    flags=display="System Image";backup=1;flashimg=1;logical;
+/vendor_image       emmc         vendor                                   flags=display="Vendor Image";backup=1;flashimg=1;logical;
+/product_image      emmc         product                                  flags=display="Product Image";backup=1;flashimg=1;logical;
+/odm_image          emmc         odm                                      flags=display="ODM Image";backup=1;flashimg=1;logical;
+/system_ext_image   emmc         system_ext                               flags=display="System Ext Image";backup=1;flashimg=1;logical;
+/vendor_dlkm_image  emmc         vendor_dlkm                              flags=display="Vendor DLKM Image";backup=1;flashimg=1;logical;
+/system_dlkm_image  emmc         system_dlkm                              flags=display="System DLKM Image";backup=1;flashimg=1;logical;
+
+# Data and Cache
+/data               f2fs         /dev/block/by-name/userdata               flags=display="Data";backup=1;wipeingui;
+/cache              ext4         /dev/block/by-name/cache                  flags=display="Cache";backup=1;wipeingui;
+/metadata           ext4         /dev/block/by-name/metadata               flags=display="Metadata";backup=1;
+
+# Modem and Firmware
+/modem              emmc         /dev/block/by-name/radio                  flags=display="Modem";backup=1;flashimg=1;
+/vbmeta_system      emmc         /dev/block/by-name/vbmeta_system          flags=display="VBMeta System";backup=1;flashimg=1;
+/vbmeta_samsung     emmc         /dev/block/by-name/vbmeta_samsung         flags=display="VBMeta Samsung";backup=1;flashimg=1;
+
+# EFS and Security
+/efs                ext4         /dev/block/by-name/sec_efs                flags=display="EFS";backup=1;
+/sec_efs             ext4         /dev/block/by-name/sec_efs                flags=display="Sec EFS";backup=1;
+/keydata             ext4         /dev/block/by-name/keydata                flags=display="Keydata";backup=1;
+/keyrefuge           f2fs         /dev/block/by-name/keyrefuge              flags=display="Keyrefuge";backup=1;
+
+# CSC and Device Configuration
+/carrier             ext4         /dev/block/by-name/carrier                flags=display="Carrier";backup=1;
+/preload             ext4         /dev/block/by-name/hidden                 flags=display="Preload";backup=1;
+/prism               ext4         /dev/block/by-name/prism                  flags=display="Prism";backup=1;
+/optics              ext4         /dev/block/by-name/optics                 flags=display="Optics";backup=1;
+
+# Miscellaneous
+/misc                emmc         /dev/block/by-name/misc                   flags=display="Misc";backup=1;
+/sdcard              sdfat        /dev/block/mmcblk0p1                      flags=display="SDCard";storage;wipeingui;removable;
