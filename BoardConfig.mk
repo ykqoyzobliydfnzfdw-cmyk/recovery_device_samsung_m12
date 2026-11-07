@@ -101,18 +101,21 @@ PLATFORM_SECURITY_PATCH := 2099-12-31
 VENDOR_SECURITY_PATCH := 2099-12-31
 PLATFORM_VERSION := 16.1.0
 
+# SOLVED: recovery size back to normal 
+LZMA_RAMDISK_TARGETS := boot,recovery
+BOARD_RAMDISK_USE_LZ4 := true
+LZMA_RAMDISK_TARGETS := boot,recovery
 
 # Python prebuilts
 TW_EXCLUDE_PYTHON := true
 
 # TWRP Configuration
 TW_THEME := portrait_hdpi
-TW_EXTRA_LANGUAGES := true
+
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_INCLUDE_FASTBOOTD := true
 TW_USE_TOOLBOX := true
-TW_EXTRA_LANGUAGES := true
 TW_HAS_MTP := true
 TW_MTP_DEVICE := /dev/mtp_usb
 TW_DEFAULT_LANGUAGE := en
