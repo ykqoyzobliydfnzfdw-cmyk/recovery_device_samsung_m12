@@ -12,6 +12,3 @@ LOCAL_PATH := device/samsung/m12
 PRODUCT_PACKAGES += \
     fastbootd \
     android.hardware.fastboot@1.0-impl-mock
-
-# Python prebuilts
-TW_EXCLUDE_PYTHON := true
