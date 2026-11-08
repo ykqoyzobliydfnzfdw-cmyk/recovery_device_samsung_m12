@@ -101,27 +101,31 @@ PLATFORM_SECURITY_PATCH := 2099-12-31
 VENDOR_SECURITY_PATCH := 2099-12-31
 PLATFORM_VERSION := 16.1.0
 
-# SOLVED: recovery size back to normal 
-LZMA_RAMDISK_TARGETS := boot,recovery
-BOARD_RAMDISK_USE_LZ4 := true
-LZMA_RAMDISK_TARGETS := boot,recovery
+# SOLVED: recovery size back to normal Ramdisk compression
+BOARD_RAMDISK_USE_LZMA := true
+LZMA_RAMDISK_TARGETS := recovery
 
-# Python prebuilts
+# Python
 TW_EXCLUDE_PYTHON := true
 
 # TWRP Configuration
 TW_THEME := portrait_hdpi
-
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
+
 TW_INCLUDE_FASTBOOTD := true
 TW_USE_TOOLBOX := true
+
 TW_HAS_MTP := true
 TW_MTP_DEVICE := /dev/mtp_usb
+
 TW_DEFAULT_LANGUAGE := en
+
+# USB Storage
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.usb0/lun.%d/file
-TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
-PB_TORCH_PATH := "/sys/class/leds/flashlight"
 TW_USB_STORAGE := true
+
+# Display
+TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_MAX_BRIGHTNESS := 2047
-TW_DEFAULT_BRIGHTNESS := 2047
+TW_DEFAULT_BRIGHTNESS := 1024
